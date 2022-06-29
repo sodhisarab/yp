@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/*
+Theme Name: yp-solution
+Theme URI: /
+Author: 
+Author URI: 
+Description: 
+Requires at least: 4.9.6
+Requires PHP: 5.2.4
+Version: 1.0
+
+/*
+ * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
+ * This results in a jumping cursor when typing in both the Classic and block
+ * editors. The following font-face override fixes the issue by manually inserting
+ * a custom font that includes just a Hoefler Text space replacement for that
+ * character instead.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+.yp-container{
+    padding: 0 100px;
+}
+.logos-slider_section{
+    padding: 80px 0;
+}
+.logos-slider_section .logo-bx{
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-slider-left-move{
+    margin-bottom: 30px;
+}
+@media (max-width: 991px){
+    .logos-slider_section .yp-container{
+        padding: 0 20px;
+    }
+}
