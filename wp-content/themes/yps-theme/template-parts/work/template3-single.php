@@ -128,7 +128,7 @@
 
             </div>
 
-            <div class="work_page_section2 text-center">
+            <div class="work_page_section2">
 
                 <?php echo getImageHtml(get_sub_field('main_image'), get_sub_field('mobile_image')); ?>
 
@@ -556,7 +556,7 @@
 
 
 
-                        <?php /* if (have_rows('result')): ?>
+                        <?php if (have_rows('result')): ?>
 
                             <ul class="percent_10">
 
@@ -570,7 +570,7 @@
 
                             </ul>
 
-                        <?php endif;  */?>
+                        <?php endif; ?>
 
                     </div>
 

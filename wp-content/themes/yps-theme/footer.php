@@ -34,10 +34,10 @@
 					</div>
 					<div class="one_colun last_colun">
 						<ul class="sl-nav-menu">
-						<li><a href="https://www.instagram.com/weareyellowpixel/" class="sl-menu-item">IG</a></li>
-						<li><a href="https://twitter.com/beyellowpixel" class="sl-menu-item">TW</a></li>
-						<li><a href="https://www.facebook.com/weareyellowpixel" class="sl-menu-item">FB</a></li>
-						<li><a href="https://www.linkedin.com/company/yellowpixel" class="sl-menu-item">LN</a></li>
+						<li class=""><a href="#" class="sl-menu-item">IG</a></li>
+						<li class=""><a href="#" class="sl-menu-item">TW</a></li>
+						<li class=""><a href="#" class="sl-menu-item">FB</a></li>
+						<li class=""><a href="#" class="sl-menu-item">LN</a></li>
 					</ul>
 					</div>
 				</div>
