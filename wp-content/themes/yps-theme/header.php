@@ -130,7 +130,7 @@
 
             <div class="header_toggle_content">
                 <header class="header_toggle_header">
-                    <a class="header_toggle_logo animsition-link" href="index.html"><img
+                    <a class="header_toggle_logo animsition-link" href="<?php get_template_directory_uri()?>"><img
                                 src="<?php bloginfo('template_url'); ?>/images/yellowpixel-logo-svg.svg" alt="Logo"></a>
                 </header>
 
@@ -138,7 +138,13 @@
                     <div class="icon-box-wrapper">
                         <div class="icon-box-content">
                             <h5 class="icon-box-title">
-                                <span>London 6PM</span>
+                                <span>London 
+                                <?php
+                                date_default_timezone_set('Europe/London');
+                                $sTime = date("h:i A");
+                                echo $sTime;
+                                ?>
+                                </span>
                             </h5>
                         </div>
                         <div class="icon-box-icon">

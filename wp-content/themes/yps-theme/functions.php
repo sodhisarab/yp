@@ -443,6 +443,6 @@ function getImageHtml($image, $mobileImage)
    return  '<picture>
         <source media="(min-width:650px)" srcset="'.$image['url'].'">
         
-        <img src="'.$mobileImage['url'].'" alt="'.$mobileImage['name'].'"  width="100%" height="auto">
+        <img src="'.$mobileImage['url'].'" alt="'.$mobileImage['name'].'" height="auto">
     </picture>';
 }

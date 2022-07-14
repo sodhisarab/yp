@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="31" height="17" viewBox="0 0 31 17">
-  <g fill="none" fill-rule="evenodd" stroke="#FFF" transform="matrix(-1 0 0 1 31 0)">
-    <path d="M30,8.07692308 L0,8.07692308"/>
-    <polyline points="21.923 0 30 8.077 21.923 16.154"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="15.707" height="15.707" viewBox="0 0 15.707 15.707">
+  <g id="Group_39" data-name="Group 39" transform="translate(-128.5 -10796.793)">
+    <line id="Line_16" data-name="Line 16" y1="15" transform="translate(129.5 10797.5)" fill="none" stroke="#fff" stroke-width="2"/>
+    <line id="Line_17" data-name="Line 17" y1="15" transform="translate(143.5 10811.5) rotate(90)" fill="none" stroke="#fff" stroke-width="2"/>
+    <line id="Line_18" data-name="Line 18" y1="14" x2="14" transform="translate(129.5 10797.5)" fill="none" stroke="#fff" stroke-width="2"/>
   </g>
 </svg>
