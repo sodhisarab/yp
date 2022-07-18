@@ -9,19 +9,15 @@
  * @since yp-solution 1.0
  */
 
-get_header();
-
+echo get_header();
 ?>
-    <link rel="stylesheet" href="https://use.typekit.net/lma7zwj.css">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/dist/app.css" />
-  <script>
-  document.documentElement.className = "js";
-  var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
-  supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
-  </script>
-  <script src="<?php bloginfo('template_url'); ?>/dist/app.js"></script>
 
-  <main>
+  <?php /*
+  <script src="<?php bloginfo('template_url'); ?>/js/app.js"></script>
+  */ ?>
+
+  <main class="cd-main-content">
     <div class="our_work_page">
       <div class="our_work_page_head">
         <div class="half2">
@@ -36,7 +32,7 @@ get_header();
       <div class="our_work_content">
         <div class="half3">
           <ul>
-            <li><a href="#">Shopify</a></li>
+            <li><a href="#">Shopify 13</a></li>
             <li><a href="#">Magento</a></li>
             <li><a href="#">WooCommerce</a></li>
           </ul>

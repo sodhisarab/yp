@@ -430,7 +430,7 @@
 
                             <?php endif; ?>
 
-                            <div class="work_page_section_inner">
+                            <div class="work_page_section_inner template-1">
 
                                 <?php if ($imagePosition == 'Left' || $imagePosition == 'Right') : ?>
 

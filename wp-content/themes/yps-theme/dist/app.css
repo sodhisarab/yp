@@ -238,7 +238,7 @@ a {
   align-items: center;
   position: relative;
   width: 100%;
-  height: calc(100vh - 32rem); }
+ }
 
 @media screen and (min-width: 53em) {
   .message {
@@ -428,6 +428,7 @@ body {
   width: 100%; }
 
 .slideshow__progress-ctn {
+  display: none;
   overflow: hidden;
   position: absolute;
   bottom: 5%;
@@ -555,4 +556,13 @@ body {
   content: '';
   display: block;
   padding-top: 100%;
+}
+@media (max-width: 767px){
+  .slideshow-list__el {
+    flex: 0 0 100%;
+    margin-left: 0;
+  }
+  .slideshow-list__el{
+    padding-bottom: 30px;
+  }
 }

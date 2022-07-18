@@ -69,7 +69,7 @@
                 </ul> <!-- cd-header-buttons -->
             </header>
 
-            <nav class="cd-nav">
+            <nav class="cd-nav Iam homepage and work page">
                 <div class="icon-box-wrapper">
                     <div class="icon-box-content">
                         <h5 class="icon-box-title">
@@ -109,7 +109,7 @@
 
                     }
                     ?>
-                    <li class="mobile_none" style="display: none;"><a class="cd_let_talk" href="contact.html"><span>Let's Talk</span></a>
+                    <li class="mobile_none" style="display: none;"><a class="cd_let_talk" href="<?php echo get_template_directory_uri()?>/contact"><span>Let's Talk</span></a>
                     </li>
 
 
@@ -138,7 +138,13 @@
                     <div class="icon-box-wrapper">
                         <div class="icon-box-content">
                             <h5 class="icon-box-title">
-                                <span>London 6PM</span>
+                                <span>London
+                                <?php
+                                date_default_timezone_set('Europe/London');
+                                $sTime = date("h:i A");
+                                echo $sTime;
+                                ?>
+                                </span>
                             </h5>
                         </div>
                         <div class="icon-box-icon">

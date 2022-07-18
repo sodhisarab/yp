@@ -1,4 +1,4 @@
-<aside class="work_page_inner">
+<aside class="work_page_inner work_page_template-3">
 
     <?php if (have_rows('client_information')): ?>
 
@@ -354,7 +354,7 @@
 
     <?php if (have_rows('p_additional_information')): ?>
 
-        <div class="work_page_section9">
+        <div class="work_page_section9 template-3">
 
             <?php while (have_rows('p_additional_information')): the_row(); ?>
 
@@ -430,7 +430,7 @@
 
                             <?php endif; ?>
 
-                            <div class="work_page_section_inner">
+                            <div class="work_page_section_inner template-3">
 
                                 <?php if ($imagePosition == 'Left' || $imagePosition == 'Right') : ?>
 
@@ -487,10 +487,11 @@
                                 <?php endif; ?>
 
                             </div>
-
+                            
                             <?php if ($imagePosition == 'Below'): ?>
-
-                                <?php echo $imageHTML; ?>
+                                <div class="image-template-3">
+                                    <?php echo $imageHTML; ?>
+                                </div>
 
                             <?php endif; ?>
 
@@ -539,7 +540,7 @@
                 </div>
 
 
-
+<?php /*
                 <div class="section10_content">
 
                     <div class="section10_one">
@@ -575,6 +576,7 @@
                     </div>
 
                 </div>
+                */?>
 
                 <div class="section10-footer">
 
