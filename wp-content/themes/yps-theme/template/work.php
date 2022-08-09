@@ -32,7 +32,7 @@ echo get_header();
       <div class="our_work_content">
         <div class="half3">
           <ul>
-            <li><a href="#">Shopify 13</a></li>
+            <li><a href="#">Shopify</a></li>
             <li><a href="#">Magento</a></li>
             <li><a href="#">WooCommerce</a></li>
           </ul>
@@ -57,31 +57,64 @@ echo get_header();
                     $loop = new WP_Query( $args ); ?>
 
 
-                      <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                        
-                        <li class="slideshow-list__el">
-                          <article class="tile | js-tile">
-                            <a href="<?php the_permalink(); ?>">
-                              <?php 
-                                $hero = get_field('section_1_client_information');
-                                if( !empty( $hero ) ): ?>
-                                <figure class="tile__fig">
-                                  <img src="<?php echo esc_url( $hero['work_page_image']['url'] ); ?>" data-hover="<?php echo esc_url( $hero['work_page_hover _image']['url'] ); ?>" alt="<?php echo esc_attr( $hero['work_page_image']['alt'] ); ?>" class="tile__img">
-                                </figure>
-                                <div class="tile__content">
-                                  <h3 class="tile__title | title title--medium "><?php print the_title(); ?></span></h3>
-                                  <div class="tile__cta">
-                                    <span class="btn-inline"><?php print( $hero['services'] ); ?></span>                                
-                                  </div>
-                                </div>
-                              <?php endif; ?>
-                            </a>
-                          </article>
-                        </li>
-                       
-                      <?php endwhile; ?>
+<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-                    <?php wp_reset_postdata();  ?>
+
+
+<li class="slideshow-list__el">
+    <article class="tile | js-tile">
+        <a href="<?php the_permalink(); ?>">
+
+
+
+        <?php if (have_rows('client_information')): ?>
+
+            <?php while (have_rows('client_information')): the_row(); ?>
+
+
+<figure class="tile__fig">
+
+<?php echo getImageHtml(get_sub_field('list_page_image')['main_image'], get_sub_field('list_page_image')['main_image']); ?>
+
+</figure>
+
+<?php if (have_rows('services')): ?>
+
+<div class="tile__content">
+                    <h3 class="tile__title | title title--medium "><?php print the_title(); ?></span></h3>
+                    <div class="tile__cta">
+                        <span class="btn-inline">
+
+
+<?php $sfields = []; while (have_rows('services')): the_row(); ?>
+
+<?php $sfields[] = get_sub_field('title'); ?>
+
+<?php endwhile; echo implode(" | ",$sfields); ?>
+
+</span>
+</div>
+<?php endif; ?>
+
+
+
+
+
+<?php endwhile; ?>
+
+<?php endif; ?>
+
+
+       
+        </a>
+    </article>
+</li>
+
+<?php endwhile; ?>
+
+<?php wp_reset_postdata();  ?>
+
+
 
 
 

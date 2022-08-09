@@ -32,20 +32,34 @@
 		font: inherit;
 		vertical-align: baseline; }
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-		display: block; }
+		display: block; 
+	}
 	body {
-		line-height: 1; }
-	ol, ul {
-		list-style: none; }
-	blockquote, q {
-		quotes: none; }
-	blockquote:before, blockquote:after,
-	q:before, q:after {
+		line-height: 1;
+	}
+
+	ol,
+	ul {
+		list-style: none;
+	}
+
+	blockquote,
+	q {
+		quotes: none;
+	}
+
+	blockquote:before,
+	blockquote:after,
+	q:before,
+	q:after {
 		content: '';
-		content: none; }
+		content: none;
+	}
+
 	table {
 		border-collapse: collapse;
-		border-spacing: 0; }
+		border-spacing: 0;
+	}
 
 /* #Basic Styles
 ================================================== */
@@ -55,7 +69,6 @@ body {
 	font-size: 15px;
 	line-height:24px;
 	color:#707070;
-	overflow-x:hidden;
 	letter-spacing:1px;
 	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
