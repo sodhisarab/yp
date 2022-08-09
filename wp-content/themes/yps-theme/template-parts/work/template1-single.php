@@ -57,9 +57,7 @@
                              class="close-detail__back">
 
                         Back
-
                     </button>
-
                     <div class="work_inner_work">
 
                         <?php if (has_post_thumbnail()) : ?>
